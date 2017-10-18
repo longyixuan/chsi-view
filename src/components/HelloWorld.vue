@@ -1,22 +1,12 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div class="demo-model">
+    <h1>简单实例</h1>
+    <div class="demo-warp">
+      <h2>双向绑定</h2>
+      <input v-model="message" class="demo-input">
+      <p>{{ message }}</p>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -25,18 +15,36 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      message: '这是一个双向数据绑定实例'
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="less">
 h1, h2 {
   font-weight: normal;
 }
-
+h1 {
+  text-align: center;
+  font-size: 24px;
+  height: 60px;
+  line-height: 60px; 
+  border-bottom: 1px solid #eee;
+  margin: 0 20px; 
+}
+.demo-warp {
+  margin: 0 20px; 
+}
+.demo-input {
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  outline: none;
+  color: #666;
+}
 ul {
   list-style-type: none;
   padding: 0;

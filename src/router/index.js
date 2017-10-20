@@ -4,6 +4,7 @@ import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import HelloWorld from '@/components/HelloWorld'
 import ChsiList from '@/components/ChsiList'
+import Route from '@/components/Route'
 
 
 Vue.use(Router)
@@ -20,6 +21,18 @@ export default new Router({
       path: '/chsi-view',
       name: 'ChsiView',
       component: ChsiList
+    },
+    {
+      path: '/route',
+      name: 'Route',
+      component: Route
     }
   ]
+  // scrollBehavior (to, from, savedPosition) {
+  //   if (savedPosition) {
+  //     return savedPosition
+  //   } else {
+  //     return { x: 0, y: 0 }
+  //   }
+  // }
 })

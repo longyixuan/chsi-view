@@ -5,15 +5,16 @@
         Chsi-View
       </div>
       <div class="nav">
-        <ul>
-          <li><router-link to="/">语法样例</router-link></li>
-          <li><router-link to="/chsi-view/">组件样式</router-link></li>
-        </ul>
+        <mu-tabs :value="activeTab" @change="handleTabChange" class="tab">
+          <mu-tab value="tab1" title="语法样例"/>
+          <mu-tab value="tab2" title="组件实例"/>
+          <mu-tab value="tab3" title="路由实例"/>
+        </mu-tabs>
       </div>
     </div>
     <div class="content">
       <div class="body">
-        <router-view></router-view>
+          <router-view></router-view>
       </div>
     </div>
     <div class="footer">
@@ -27,7 +28,21 @@ export default {
   name: "app",
   data () {
     return {
-      
+      activeTab: 'tab1'
+    }
+  },
+  methods: {
+    handleTabChange (val) {
+      this.activeTab = val;
+      if(val==="tab1"){
+        this.$router.push('/');
+      }
+      if(val==="tab2"){
+        this.$router.push({ name: 'ChsiView' });
+      }
+      if(val==="tab3"){
+        this.$router.push({ name: 'Route' });
+      }
     }
   }
 }
@@ -55,23 +70,6 @@ export default {
   display: inline-block;
   float: right;
   margin-right: 20px;
-  ul {
-    margin: 0;
-  }
-  li {
-    list-style: none;
-    float: left;
-    a {
-      display: block;
-      height: 48px;
-      line-height: 48px;
-      padding: 0 20px;
-      color: #fff;
-      &.router-link-exact-active {
-        background: darken(#7e57c2, 5%)
-      }
-    }
-  }
 }
 
 .tab{

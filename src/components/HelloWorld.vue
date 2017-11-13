@@ -2,16 +2,8 @@
   <div class="demo-model">
     <h1>简单实例</h1>
     <div class="demo-warp">
-      <h2>登录</h2>
-      <div>
-        <mu-text-field title="用户名" label="用户名" v-model="username" hintText="请输入用户名" type="text" labelFloat/>
-      </div>
-      <div>
-        <mu-text-field title="密码" label="密码" v-model="password" hintText="请输入密码" type="password" labelFloat/>
-      </div>
-      <div>
-        <mu-raised-button label="登录" class="demo-raised-button" @click='axios' primary/>
-      </div>
+      <h2>双向绑定</h2>
+      <p>{{message}}</p>
     </div>
   </div>
   </div>
@@ -22,19 +14,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      username: '',
-      password: ''
-    }
-  },
-  methods: {
-    axios () {
-      let that = this;
-      this.$axios.post('http://localhost:3000/login.json',{
-        username: that.username,
-        password: that.password
-      }).then(function (res) {
-        console.log(res.data)
-      })
+      message: '测试',
     }
   }
 }
